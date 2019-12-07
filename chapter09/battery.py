@@ -22,3 +22,14 @@ class Battery:
         message = "This car can go approximately " + str(range)
         message += " on a full charge."
         print(message)
+
+
+class AlkalineBattery(Battery):
+    """
+    This is a test of a subclass definition within a file that doesn't really
+    name this one's superclass.
+    """
+    def __init__(self, brand):
+        """Some stuff"""
+        super().__init__()
+        self.brand = brand

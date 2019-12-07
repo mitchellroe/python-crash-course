@@ -1,0 +1,3 @@
+In Python you can create classes and objects.
+In Python you can organize your code into different functions.
+In Python you can interact with the user with the simple input() function.

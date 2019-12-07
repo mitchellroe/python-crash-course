@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-"""Instantiates the ElectricCar class found in car.py."""
+"""Instantiates the ElectricCar class found in electric_car.py."""
 
-from electriccar import ElectricCar
+from electric_car import ElectricCar
 
 my_tesla = ElectricCar('tesla', 'model s', 2016)
 
