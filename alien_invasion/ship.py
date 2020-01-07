@@ -1,44 +1,22 @@
 #!/usr/bin/env python3
-#
-# ship.py
 
 import pygame
 
 
 class Ship:
+    """A class to manage the ship."""
 
-    def __init__(self, ai_settings, screen):
+    def __init__(self, ai_game):
         """Initialize the ship and set its starting position."""
-        self.screen = screen
-        self.ai_settings = ai_settings
+        self.screen = ai_game.screen
+        self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and get its rect.
         self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()
-        self.screen_rect = screen.get_rect()
 
-        # Start each new ship at the bottom center of the screen.
-        self.rect.centerx = self.screen_rect.centerx
-        self.rect.bottom = self.screen_rect.bottom
-        # Store a decimal value for the ship's center.
-        self.center = float(self.rect.centerx)
-
-        # Movement flags
-        self.moving_right = False
-        self.moving_left = False
-
-    def update(self):
-        """Update the ship's position based on the movement flag."""
-        # Update the ship's center value, not the rect.
-        if self.moving_right and self.rect.right < self.screen_rect.right:
-            self.center += self.ai_settings.ship_speed_factor
-        # The book has us comparing self.rect.left against 0, but I like the
-        # idea of comparing it against self.screen_rect.left instead.
-        if self.moving_left and self.rect.left > self.screen_rect.left:
-            self.center -= self.ai_settings.ship_speed_factor
-
-        # Update rect object from self.center.
-        self.rect.centerx = self.center
+        # Start each new ship at the bottom of the screen.
+        self.rect.midbottom = self.screen_rect.midbottom
 
     def blitme(self):
         """Draw the ship at its current location."""
