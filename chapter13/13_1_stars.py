@@ -15,11 +15,15 @@ class Stars:
         pygame.display.set_caption("Stars!")
 
     def run_game(self):
+        """Run the primary game loop."""
         running = True
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        running = False
 
             # Insert the game logic here.
 
