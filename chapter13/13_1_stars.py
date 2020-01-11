@@ -11,9 +11,10 @@ class Stars:
         width, height = 1280, 800
         self.screen = pygame.display.set_mode((width, height))
         # Add a clock to limit the frame rate.
-        clock = pygame.time.Clock()
+        self.clock = pygame.time.Clock()
         pygame.display.set_caption("Stars!")
 
+    def run_game(self):
         running = True
         while running:
             for event in pygame.event.get():
@@ -25,10 +26,11 @@ class Stars:
             # Then draw everything, flip the display and call clock tick.
             self.screen.fill((200, 200, 200))
             pygame.display.flip()
-            clock.tick(60)      # Limit the frame rate to 60 FPS
+            self.clock.tick(60)      # Limit the frame rate to 60 FPS
 
         pygame.quit()
 
 
 if __name__ == '__main__':
     st = Stars()
+    st.run_game()
